@@ -1,0 +1,305 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+dialog{
+    outline: none !important;
+}
+#close{
+    position: absolute;
+    right:0;
+    top:0
+}
+body{
+    background: black;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+h2{
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF;
+    font-size: 4vw;
+}
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .9fr 1fr;
+    grid-template-areas: "audio controls" "game controls";
+    gap: 2%;
+    width: 95%;
+    height: 80%;
+}
+#audio{
+    grid-area: audio;
+}
+
+#game{
+    grid-area: game
+}
+legend{
+    text-align: center;
+}
+fieldset{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.2vw;
+    padding-block: 2%;
+    color: #FFFFFF;
+    text-shadow: 0 0 10px #FFFFFF;
+}
+[type=range]::before, [type=range]::after{
+    color: #020271;
+    display: block;
+    width: 3vw;
+    height: 3vw;
+    font-size: 2.2vw;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    top: -0.25vw;
+}
+[type=range]::after{
+    content: '10';
+    right: -3vw;
+}
+[type=range]::before{
+    content: '1';
+    left: -3vw;
+}
+#audio [type=range]::after{
+    content: '100';
+}
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 60%;
+    position: relative;
+    background: transparent;
+}
+input[type=range]:focus{
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1.5vw;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #6c3ed7;
+    background: #6c3ed7;
+    border-radius: 25px;
+    border:none;
+}
+input[type=range]::-webkit-slider-thumb {
+    border: none;
+    height: 2.5vw;
+    width: 2vw;
+    border-radius: 1vw;
+    background: #020271;
+    box-shadow: 0px 0px 10px #020271;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3.6px;
+}
+select{
+    background: transparent;
+    text-align: center;
+    color: white;
+}
+option{
+    background-color: black;
+}
+label{
+    display: block;
+    width: 12vw;
+    text-align: left;
+}
+label:first-of-type{
+    margin-top: 1vw;
+}
+[type=radio]{
+    outline: none;
+    margin-right: .5vw;
+    width: 1.6vw;
+    height: 1.6vw;
+}
+#controls{
+    grid-area: controls;
+}
+#controls td{
+    width: 20vw;
+    padding-left: 2vw;
+}
+#controls th{
+    font-size: 2.4vw;
+}
+#controls input{
+    width: 19vw;
+    background-color: transparent;
+    border: none;
+    color: #020271;
+    font-weight: bold;
+    border-bottom: .3vw solid #6c3ed7;
+    font-size: 2.4vw;
+    text-align: center;
+    cursor: pointer;
+}
+#controls input:focus{
+    outline: none;
+    border-bottom: .3vw solid #b293fa;
+    color: #b293fa;
+}
+#save, #canel{
+    width: 20%;
+    padding: 5px;
+    background-color: rgb(0, 0, 0,.6);
+    border: .5vh solid yellow;
+    color: yellow;
+    text-shadow: .1vh .1vh .8vh yellow;
+    font-weight: bold;
+    outline: none;
+    border-radius: 30vh;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 2%;
+}
+#save:hover, #canel:hover{
+    box-shadow: .2vh .2vh 2vh yellow;
+}
+#button-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 3.5%;
+}
+#extra-blocks{
+    margin-top: 2%;
+    width: 100%;
+	height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+#add-pattern{
+    align-self: flex-start;
+    margin-top: 3.5%;
+    width: 7.5%;
+    aspect-ratio: 1/1;
+    background-color: rgb(173, 216, 230, 0);
+    outline: none !important;
+    cursor: pointer;
+    border-radius: 25%;
+    border: .4vw solid lightblue;
+    box-shadow: 0 0 1vw lightblue;
+    transform: scale(1.15);
+    font-size: 2vw;
+    font-weight: 900;
+    color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .35s linear;
+}
+#add-pattern:hover{
+    background-color: lightblue;
+}
+.pattern{
+    margin-inline: 1.3%;
+    cursor: pointer;
+    transition: transform .2s linear;
+    display: block;
+    width: 7.5%;
+    /* height: 50% !important; */
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 4%;
+	z-index:2;
+}
+.pattern:hover{
+    transform: scale(1.3);
+}
+.pattern[clicked]{
+    outline: .6vh rgb(224, 191, 0) solid;
+}
+.pattern:not([clicked]){
+    outline: .6vh red solid;
+}
+.pattern::before{
+    content: '';
+    position: absolute;
+    width: 1.2vw;
+    height:1.2vw;
+    top:-.7vw;
+    left:-.7vw;
+    background-image: url("img/accept.png");
+    background-size: cover;
+}
+.pattern:not([clicked])::before{
+    background-image: url("img/remove.png");
+    z-index: 1;
+}
+.edit{
+	position: absolute;
+	height: 2vw;
+	width: 2vw;
+	bottom: -1.8vw;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	/* background: green; */
+}
+.pattern[byUser]:hover .edit{
+	display: flex;
+	z-index: 3;
+}
+.pattern:nth-child(n+10){
+	z-index: 1;
+}
+ svg{
+    height: 100%;
+ }
+ #panel{
+    position: fixed;
+    top:0;left:0;right:0;bottom:0;
+    margin: auto;
+ }
+ #panel-content{
+    margin-bottom: 2%;
+ }
+ span{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+ }
+ #panel-confirm, #panel-delete{
+    width: 25%;
+    background-color: rgb(255, 255, 0, 0);
+    outline: none !important;
+    color: white;
+    font-weight: bold;
+    font-size: 2.5vw;
+    border: .5vw solid gold;
+    cursor: pointer;
+    padding-inline: 2%;
+    transition:  color .3s linear;
+ }
+ #panel-confirm:hover, #panel-delete:hover{
+    background-color: rgb(255, 255, 0);
+    color: darkorange;
+ }
+ #panel rect{
+    cursor: pointer;
+ }

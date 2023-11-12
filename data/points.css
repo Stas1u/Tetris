@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+#close{
+    width: 20%;
+    padding: 5px;
+    background-color: rgb(0, 0, 0,.6);
+    border: .5vh solid darkorange;
+    color: darkorange;
+    text-shadow: .1vh .1vh .8vh darkorange;
+    font-weight: bold;
+    outline: none;
+    border-radius: 30vh;
+    cursor: pointer;
+}
+#close:hover{
+    box-shadow: .2vh .2vh 2vh darkorange;
+}
+body{
+    background: black;
+    color: white;
+    height: 93%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+table{
+    font-size: 3vw;
+    color: #70ff23;
+    text-shadow: 1px 1px 0 #bcbcbc, 2px 2px 0 #9c9c9c;
+}
+tr td:last-of-type{
+    text-align: center;
+    width: 15vw;
+}

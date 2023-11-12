@@ -1,0 +1,73 @@
+<link href="data/tutorial.css" rel="stylesheet">
+
+<body>
+    <!-- <button id="close">x</button>
+    <script>
+        document.getElementById("close").onclick = e => parent.document.getElementsByTagName("dialog")[0].close()
+    </script> -->
+    <main>
+        <!-- <details open>
+            <summary>What is Tetris?</summary>
+            <p>Tetris is a game of stacking falling blocks on top of each other so that they do not touch the top edge.</p>
+        </details>
+        <details open>
+            <summary>How to play it?</summary>
+            <p>To play tetris for as long as possible, simply stack the blocks on top of each other so that they cover the entire level. Then the level is removed.</p>
+        </details>
+        <details open>
+            <summary>Scoring</summary>
+            <p>To score points you have to do one of these two activities:
+            <table>
+                <tr><th>Allowing the block to land</th><td>(+10 points*number of grids the block has)</td></tr>
+                <tr><th>Destroying a full level</th><td>(+125 points).</td></tr>
+            </table></p>
+        </details>
+        <details open>
+            <summary>Controls</summary>
+            <p>Control in Tetris boils down to controlling the currently falling block. The keys are used for this:
+            <table>
+                <tr><th class="key">A</th><td>Moves the block by 1 to the left</td></tr>
+                <tr><th class="key">D</th><td>Moves the block by 1 to the right</td></tr>
+                <tr><th class="key">W</th><td>Rotates the block 90 degrees left</td></tr>
+                <tr><th class="key">S</th><td>Rotates the block 90 degrees right</td></tr>
+                <tr><th class="key">X</th><td>It brings the block all the way down</td></tr>
+            </table></p>
+        </details> -->
+        <h1>Instruction</h1>
+        <div>
+        <p>Your goal is to arrange falling blocks in such a way as to create complete horizontal lines on the board. The blocks can be rotated and moved left or right. When you manage to create a full line, it will be cleared, and you will earn points. The game ends when the blocks stack up to the top of the board. Try to score as many points as possible and keep the board as empty as you can. Good luck!</p>
+        <img src="./data/img2/default_game.png">
+        </div>
+    </main>
+
+    <script>
+        // var s1 = sessionStorage.getItem('Left') || "a";
+        // var s2 = sessionStorage.getItem('Right') || "d";
+        // var s3 = sessionStorage.getItem('RotateLeft') || "s";
+        // var s4 = sessionStorage.getItem('RotateRight') || "w";
+        // var s5 = sessionStorage.getItem('HardDrop') || "x";
+        //     for(a=1; a<=5; a++){
+        //         if(a==1){
+        //             b = s1;
+        //         }
+        //         else if(a==2){
+        //             b = s2;
+        //         }
+        //         else if(a==3){
+        //             b = s3;
+        //         }
+        //         else if(a==4){
+        //             b = s4;
+        //         }
+        //         else if(a==5){
+        //             b = s5;
+        //         }
+        //         document.querySelector("#l"+a).innerHTML = b;
+        // }
+        const keys = ['Left', 'Right', 'RotateLeft', 'RotateRight', 'HardDrop']
+        const defaultKey = ['a','d','q','e','s']
+        Array.from(document.getElementsByClassName("key"), (el,i) =>{
+            el.textContent = sessionStorage.getItem(keys[i]) || defaultKey[i].toUpperCase()
+        })
+    </script>
+</body>

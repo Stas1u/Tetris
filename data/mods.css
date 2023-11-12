@@ -1,0 +1,271 @@
+#mods{
+    overflow-y: auto;
+
+    background-image: url("./img2/pb_background.png");
+    background-size: cover;
+    color: white;
+    border: none;
+}
+.sBtn{
+    width: 7.5vw;
+    height: 3vw;
+    background-size: 100% 100%;
+    cursor: pointer;
+    position: relative;
+    transform: scale(.8);
+}
+.circle{
+    width: 3vw;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+    transition: left .5s linear;
+}
+.sBtn[clicked] .circle{
+    left: 4.5vw;
+    background-image: url("./img2/switch_circle_on.png");
+}
+.sBtn:not([clicked]) .circle{
+    left: 0;
+    background-image: url("./img2/switch_circle_off.png");
+}
+.sBtn[clicked]{
+    background-image: url("./img2/switch_background_on.png");
+}
+.sBtn:not([clicked]){
+    background-image: url("./img2/switch_background_off.png");
+}
+#timer-blocks{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#timer-blocks .switch[clicked] > div:nth-child(1), #timer-blocks .switch:not([clicked]) >  div:nth-child(2){
+    display: none;
+}
+#timer-blocks .switch[clicked] > div:nth-child(2), #timer-blocks .switch:not([clicked]) > div:nth-child(1){
+    display: flex;
+}
+#timer-blocks .numericTab{
+    margin-top: 1%;
+}
+#timer-blocks > div:not(.numericTab){
+    font-size: 3.5vw;
+    margin-top: 2%;
+}
+.numericTab{
+    width: 12vw;
+    height: 5vw;
+    margin: auto;
+    font-size: 5vw;
+    cursor: default;
+    justify-content: center;
+}
+.numericTab > span{
+    display: block;
+    float: left;
+    height: 5vw;
+    width: 13%;
+    margin-inline: 1%;
+    position: relative;
+    overflow: visible;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.nBtn{
+    width: 100%;
+    aspect-ratio: 1/.5;
+    position: absolute;
+    background-size: cover;
+    visibility: hidden;
+    cursor: pointer !important;
+}
+.nTab:hover .nBtn{
+    visibility: visible;
+}
+.nBtn[down]{
+    background-image: url("./img2/arrow_down.png");
+    bottom: 0;
+}
+.nBtn[up]{
+    background-image: url("./img2/arrow_up.png");
+    top: 0;
+    
+}
+.nBtn[down]:hover{
+    background-image: url("./img2/arrow_down_hover.png");
+}
+.nBtn[up]:hover{
+    background-image: url("./img2/arrow_up_hover.png");
+}
+.nBtn[blocked=true]{
+    opacity: .35;
+}
+#points-block{
+    margin-bottom: 2%;
+    display: block;
+}
+#points-block div{
+    font-size: 3.5vw;
+}
+#points-block .numericTab{
+    height: 4vw;
+    width: 20vw;
+    height: 3.5vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+#points-block .numericTab > span:first-of-type{
+    margin-left: 4%;
+}
+#points-block .nTab{
+    position: relative;
+    text-align: center;
+    display: block;
+    width: 1.2vw;
+    height: 3.5vw;
+}
+#points-block .nBtn{
+    left:0;
+    right:0;
+    margin-inline: auto;
+}
+#mods-blocks{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}
+#mods label{
+    display: block;
+    width: 90%;
+    height: 10vh;
+    background-color: rgb(0, 0, 0, .75);
+    color: white;
+    font-size: 7vh;
+    padding-left: 2%;
+    margin-block: .5%;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+}
+#mods label:first-of-type{
+    margin-top: 5%;
+}
+#mods label img{
+    height: 90%;
+    margin-inline: 2.5%;
+}
+.checkbox{
+    height: 50%;
+    aspect-ratio: 1/1;
+    background-image: url("./img2/checkbox_off.png");
+    background-size: cover;
+    cursor: pointer;
+    opacity: .8;
+}
+.checkbox[checked]{
+    background-image: url("./img2/checkbox_on.png");
+}
+.checkbox:hover{
+    opacity: 1;
+}
+#mods label:hover{
+    text-shadow: 0 0 .5vh white;
+}
+#mods label:hover .info{
+    display: block;
+}
+.info{
+    display: none;
+    overflow: visible;
+    height: 20%;
+    aspect-ratio: 1/1;
+    background-image: url("./img2/help.png");
+    background-size: cover;
+    align-self: start;
+    margin-top: 3%;
+    margin-left: .5%;
+    position: relative;
+    cursor:help;
+}
+.info div{
+    position: absolute;
+    bottom: 0;
+    width: 15vw;
+    aspect-ratio: 1/.5;
+    background: rgb(37,37,37);
+    background: linear-gradient(135deg, rgba(37,37,37,1) 0%, rgba(28,28,28,1) 100%);
+    font-size: 1.2vw;
+    display: none;
+    /* display: flex; */
+    text-shadow: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.info span{
+    display: block;
+    width: 45%;
+    text-align: center;
+}
+.info:hover div{
+    display: flex;
+}
+.info div img{
+    width: 45%;
+    aspect-ratio: 1/1;
+    border: .1vw solid white;
+}
+#mods data{
+    font-size: 10vh;
+    width: 100%;
+    color: rgb(126, 113, 113);
+    display: flex;
+    justify-content: center;
+    gap: 1.5%;
+    cursor: default;
+}
+#mods data::before, #mods data::after{
+    content:'';
+    display: block;
+    width: 50%;
+    
+    height: .5vw;
+    background-color: rgb(126, 113, 113);
+    align-self: center;
+
+}
+#mods form > div{
+    margin-bottom: 2%;
+}
+#mods form > div:hover data{
+    text-shadow: 0 0 .5vw rgb(126, 113, 113);
+}
+#mods form > div:hover data::before, #mods form > div:hover data::after {
+    background-color: rgb(90, 79, 79);
+}
+#mods button{
+    width: 7vw;
+    height: 2vw;
+    outline: none !important;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: blue;
+    font-size: 1.5vw;
+    border: .2vw solid blue;
+    border-radius: 15%/50%;
+}
+#mods button:hover{
+    box-shadow: 0 0 1vw blue;
+    color: rgb(106, 106, 255);
+}

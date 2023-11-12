@@ -1,0 +1,10 @@
+<canvas height="1000px" width="1000px" style="border:1px solid black"></canvas>
+<script>
+    const ctx = document.querySelector("canvas").getContext("2d")
+    //drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+
+    const img = new Image()
+    img.src = `./fog.png`
+    ctx.drawImage(img, 2, 2, 100, 100)
+    // ctx.fillRect(0,0,100,100)
+</script>

@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="data/settings.css">
+<script src="extraBlocks.js" defer></script>
+<script src="settingsHandler.js" defer></script>
+
+<body>
+
+    <h2>Settings</h2>
+    <main>
+        <fieldset id="audio">
+            <legend>Audio</legend>
+            Volume: <input type="range" min="0" max="100" step="1" id="vol" class="range"><br>
+            Name of music:<select id="extra" name="extra">
+                <option value="default">default</option>
+                <option value="advanced">advanced</option>
+            </select>
+        </fieldset>
+        <fieldset id="game">
+            <legend>Game</legend>
+            Speed: <input type="range" min="1" max="10" step="1" id="spe" class="range"><br>
+            Extra blocks: 
+            <output id="extra-blocks"></output>
+        </fieldset>
+        <fieldset id="controls">
+            <legend>Controls</legend>
+            <table>
+                <tr><th>Left</th><td><input type="text" id="left" maxlength="1" class="contr" value="A" readonly></td></tr>
+                <tr><th>Right</th><td><input type="text" id="right" maxlength="1" class="contr" value="D" readonly></td></tr>
+                <tr><th>Rotate-left</th><td><input type="text" id="lrotate" maxlength="1" class="contr" value="Q" readonly></td></tr>
+                <tr><th>Rotate-right</th><td><input type="text" id="rrotate" maxlength="1" class="contr" value="E" readonly></td></tr>
+                <tr><th>Hard drop</th><td><input type="text" id="harddrop" maxlength="1" class="contr" value="S" readonly></td></tr>
+                <tr><th>Hold</th><td><input type="text" id="harddrop" maxlength="1" class="contr" value="W" readonly></td></tr>
+                <tr><th>Pause</th><td><input type="text" id="harddrop" maxlength="1" class="contr" value="SPACE" readonly></td></tr>
+            </table>
+        </fieldset>
+    </main>
+    <div id="button-area">
+        <button type="button" id="save">Save</button>
+        <button type="button" id="canel">Canel</button>
+    </div>
+    <dialog style="background-color: black;" id="panel">
+        <form>
+            <div id="panel-content"></div>
+            <span>
+            <button formmethod="dialog" id="panel-confirm">Save</button>
+            <button formmethod="dialog" id="panel-delete">canel</button>
+            </span> 
+        </form>
+    </dialog>
+    <script>
+        document.getElementById("canel").onclick = e => close()
+        const close = () => parent.document.getElementsByTagName("dialog")[0].close()
+    </script>
+</body>

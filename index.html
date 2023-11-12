@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <dialog>
+        <iframe src="" id="iframe" name="iframe"></iframe>
+    </dialog>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="data/main.css" rel="stylesheet">
+        <link href="data/mods.css" rel="stylesheet">
+        <link rel="icon" href="data/img/icon.png">
+        <title>Tetris</title>
+    </head>
+    <body>
+        <!-- <audio loop="infinite" autoplay>
+            <source src="muzyka/Tetris 01.wav" type="audio/ogg">
+            <source src="muzyka/Tetris 02.wav" type="audio/ogg">
+        </audio> -->
+        <header>
+        </header>
+        <main>
+            <!-- <button onclick="okno()">Start</button> -->
+            <button>Start</button>
+            <a href='./poradnik.html' target="iframe"><button>Guide</button></a>
+            <!-- <a href='./punktacja.html' target="iframe"><button>Ranking</button></a>
+            <a href='./ustawienia.html' target="iframe"><button>Settings</button></a> -->
+            <a href='./twórcy.html' target="iframe"><button>Creators</button></a>
+        </main>
+        <dialog id="select-game">
+            <form>
+                <div id="custom-blocks"></div>
+                <button id="default" formmethod="dialog"><div class="icon"></div>Clasic</button>
+                <button id="custom" formmethod="dialog"><div class="icon"></div>Custom</button>
+            </form>
+        </dialog>
+        <dialog id="change-blocks">
+            <form>
+                <h1>Blocks</h1>
+                <div id="blocks-content"></div>
+                <button formmethod="dialog">&#10149;Back</button> 
+            </form>
+        </dialog>
+        <dialog id="edit-panel">
+            <form>
+
+            </form>
+        </dialog>
+        <dialog id="mods">
+            <form>
+                <div id="timer-blocks">
+                    <data>timer</data>
+                    <div class="sBtn">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="switch">
+                        <div>Unlimited</div>
+                        <div class="numericTab">
+                            <span class="nTab" value="0" max="5"></span>
+                            <span class="nTab" value="5" max="9"></span>
+                            <span>:</span>
+                            <span class="nTab" value="0" max="5"></span>
+                            <span class="nTab" value="0" max="9"></span>
+                        </div>
+
+                            
+                    </div>
+
+                </div>
+                <div id="points-block">
+                    <data>Points</data>
+
+                        <div class="numericTab">
+                            Per Block: <span class="nTab" value="1" max="9"></span><span class="nTab" value="0" max="9"></span>
+                        </div>
+                        <div class="numericTab">
+                            Per Line: <span class="nTab" value="1" max="9"></span><span class="nTab" value="5" max="9"></span><span class="nTab" value="0" max="9"></span>
+                        </div>
+                    </div>
+                <div id="mods-blocks">
+                    <data>Modulators</data>
+                    <label>
+                        <div class="checkbox"></div>
+                        <img class="mod-show" src="./data/img2/lavaBlocks_mod.png">
+                        Lava blocks
+                        <div class="info">
+                            <div>
+                                <span>Randomly places few blocks, that destroys opponent's board</span>
+                                <img src="./data/img2/screen1.png">
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="checkbox" checked></div>
+                        <img class="mod-show" src="./data/img2/freezeBlocks_mod.png">
+                        Freeze blocks
+                        <div class="info">
+                            <div>
+                                <span>Creates an area, that cannot be used to make a line</span>
+                                <img src="./data/img2/screen2.png">
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="checkbox"></div>
+                        <img class="mod-show" src="./data/img2/ironBlock_mod.png">
+                        Iron block
+                        <div class="info">
+                            <div>
+                                <span>Replace the opponent's block with an iron block, that cannot be destroyed</span>
+                                <img src="./data/img2/screen3.png">
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="checkbox"></div>
+                        <img class="mod-show" src="./data/img2/fog_mod.png">
+                        Fog
+                        <div class="info">
+                            <div>
+                                <span>Cover part of opponent's screen</span>
+                                <img src="./data/img2/screen4.png">
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="checkbox"></div>
+                        <img class="mod-show" src="./data/img2/ereaser_mod.png">
+                        Ereaser
+                        <div class="info">
+                            <div>
+                                <span>Deletes part of oppenent's block</span>
+                                <img src="./data/img2/screen5.png">
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="checkbox"></div>
+                        <img class="mod-show" src="./data/img2/reverseBoard_mod.png">
+                        Reverse board
+                        <div class="info">
+                            <div>
+                                <span>Reverses opponent's board</span>
+                                <img src="./data/img2/screen6.png">
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="checkbox"></div>
+                        <img class="mod-show" src="./data/img2/changeControl_mod.png">
+                        Change controls
+                        <div class="info">
+                            <div>
+                                <span>Randomly changes opponent's controls</span>
+                                <img src="./data/img2/screen7.png">
+                            </div>
+                        </div>
+                    </label>
+                    <button formmethod="dialog">Play</button>
+                </div>
+            </form>
+        </dialog>
+        <script src="m.js"></script>
+        <script src="customSettings.js"></script>
+        <script>
+            
+
+            const [defaultBtn, customBtn] = document.getElementById("select-game").getElementsByTagName("button")
+            const play = () =>{
+                const [dialog] = document.getElementsByTagName("dialog")
+                dialog.style.cssText = `width: 60vw;height: 90vh;`
+                dialog.querySelector("iframe").setAttribute("src", "gra.html") 
+                dialog.showModal()
+            }
+            defaultBtn.onclick = e =>{
+                localStorage.setItem("mods", JSON.stringify(false))
+                play()
+            }
+            customBtn.onclick = e => document.getElementById("mods").showModal()
+
+            const [start] = document.getElementsByTagName("button")
+            start.onclick = e => document.getElementById("select-game").showModal()
+
+            document.getElementById("mods").querySelector("button").onclick = e =>{
+                const mods = Array.from(document.querySelectorAll("#mods .checkbox"), el => el.hasAttribute("checked"))
+                // console.log(mods)
+               
+                const toSec = [600, 60, 10, 1]
+                const toPoints = [100, 10, 1]
+                const time = document.querySelector("#timer-blocks .switch").hasAttribute("clicked")?  Array.from(document.querySelectorAll("#timer-blocks .nTab"), (el, i) => +el.getAttribute("value") * toSec[i]).reduce((pre, curr) => pre += curr): false
+                const points = Array.from(document.querySelectorAll("#points-block .numericTab"), (el, s) => Array.from(el.querySelectorAll(".nTab"), (el, i) => +el.textContent * toPoints[i+(s === 0? 1: 0)]).reduce((pre, curr) => pre += curr))
+                console.log(points)
+                localStorage.setItem("mods", JSON.stringify(mods))
+                localStorage.setItem("time", time)
+                localStorage.setItem("points", JSON.stringify(points))
+                // alert(mods)
+                play()
+            }
+
+
+
+            for(const a of document.getElementsByTagName("a")){
+                a.onclick = e => document.getElementsByTagName("dialog")[0].showModal()
+            }
+
+
+            const pattern = [
+                [1,1,'letterT'],[1,2,'letterT'],[1,3,'letterT'],[1,5,'letterE'],[1,6,'letterE'],[1,7,'letterE'],[1,9,'letterT2'],[1,10,'letterT2'],[1,11,'letterT2'],[1,13,'letterR'],[1,14,'letterR'],[1,17,'letterI'],[1,19,'letterS'],[1,20,'letterS'],[1,21,'letterS'],
+                [2,2,'letterT'],[2,5,'letterE'],[2,10,'letterT2'],[2,13,'letterR'],[2,15,'letterR'], [2,19,'letterS'],
+                [3,2,'letterT'],[3,5,'letterE'],[3,6,'letterE'],[3,7,'letterE'],[3,10,'letterT2'],[3,13,'letterR'],[3,14,'letterR'],[3,17,'letterI'],[3,19,'letterS'],[3,20,'letterS'],[3,21,'letterS'],
+                [4,2,'letterT'],[4,5,'letterE'],[4,10,'letterT2'],[4,13,'letterR'],[4,15,'letterR'],[4,17,'letterI'],[4,21,'letterS'],
+                [5,2,'letterT'],[5,5,'letterE'],[5,6,'letterE'],[5,7,'letterE'],[5,10,'letterT2'],[5,13,'letterR'],[5,15,'letterR'],[5,17,'letterI'],[5,19,'letterS'],[5,20,'letterS'],[5,21,'letterS']             
+            ]
+            const header = document.getElementsByTagName("header")[0]
+
+            for (const grid of pattern){
+                const el = document.createElement("div")
+                el.classList.add("textBlock", grid[2])
+                el.style['grid-area'] = `${grid[0]} / ${grid[1]}`
+                header.append(el)
+            }
+
+            const t = [document.getElementsByClassName("letterT"),document.getElementsByClassName("letterE"),document.getElementsByClassName("letterT2"),document.getElementsByClassName("letterR"),document.getElementsByClassName("letterI"),document.getElementsByClassName("letterS")]
+            
+            async function anim(i = 0, j = 0){
+                t[i][j].toggleAttribute("anim")
+                t[i][j].style['filter'] = 'hue-rotate(-50deg)'
+                setTimeout(() =>{
+                    t[i][j].toggleAttribute("anim")
+                    j = t[i][j+1]? j+1: (Array.from(t[i]).forEach(el => {el.style['filter'] = 'hue-rotate(0)'}), (i = t[i+1]? i+1: 0, 0))
+                    anim(i,j)
+                },700)
+            }
+            anim()
+        </script>
+    </body>
+</html>
